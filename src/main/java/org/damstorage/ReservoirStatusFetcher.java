@@ -23,10 +23,10 @@ public class ReservoirStatusFetcher {
 
     public List<DamStatus> fetch() throws IOException {
         String url = "https://www.waterworks.metro.tokyo.lg.jp/suigen/suigen";
-        String email = System.getenv("NOTIFY_EMAIL");
-        String userAgent = String.format("damstorage/1.0 (+mailto:%s)", email);
+        //String email = System.getenv("NOTIFY_EMAIL");
+        //String userAgent = String.format("damstorage/1.0 (+mailto:%s)", email);
         Document doc = Jsoup.connect(url)
-                .userAgent(userAgent)
+                //.userAgent(userAgent)
                 .get();
 
         Element damTable = doc.selectFirst("table");
