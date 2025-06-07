@@ -6,10 +6,10 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        //String webhookUrl = "SLACK_WEBHOOK_URL";
+        String webhookUrl = System.getenv("SLACK_WEBHOOK_URL");
 
         ReservoirStatusFetcher fetcher = new ReservoirStatusFetcher();
-        SlackNotifier notifier = new SlackNotifier("SLACK_WEBHOOK_URL");
+        SlackNotifier notifier = new SlackNotifier(webhookUrl);
 
         try {
             List<ReservoirStatusFetcher.DamStatus> damStatuses = fetcher.fetch();
